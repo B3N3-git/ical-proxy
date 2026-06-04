@@ -5,6 +5,6 @@ services:
     restart: unless-stopped
     ports:
       - "44444:44444"
-    #If using in the same network then Nextcloud
+    #If using in the same network as Nextcloud
     networks:
       - nextcloud-aio
