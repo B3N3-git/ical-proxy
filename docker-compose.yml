@@ -1,0 +1,10 @@
+services:
+  ical-proxy:
+    build: .
+    container_name: ical-proxy
+    restart: unless-stopped
+    ports:
+      - "44444:44444"
+    #If using in the same network then Nextcloud
+    networks:
+      - nextcloud-aio
