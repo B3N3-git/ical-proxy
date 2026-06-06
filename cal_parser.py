@@ -92,8 +92,7 @@ def generate_ics(url : str) -> Tuple[str, str]:
     if 'X-WR-CALNAME' in cal:
         cal_name = cal['X-WR-CALNAME']
 
-    new_interval = vDuration(timedelta(minutes=10))
-
+    new_interval = vDuration(timedelta(minutes=25))
     if cal.get('REFRESH-INTERVAL') != new_interval:
         cal['REFRESH-INTERVAL'] = new_interval
         logging.debug(f"REFRESH-INTERVAL auf {new_interval} gesetzt.")

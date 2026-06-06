@@ -1,6 +1,7 @@
 services:
   ical-proxy:
-    build: .
+    #build: .
+    image: ical-proxy:latest
     container_name: ical-proxy
     restart: unless-stopped
     ports:
