@@ -1,5 +1,7 @@
 FROM python:3.12-alpine
 
+RUN apk update && apk upgrade && rm -rf /var/cache/apk/*
+
 WORKDIR /app
 
 COPY requirements.txt .

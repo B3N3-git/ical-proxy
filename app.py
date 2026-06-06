@@ -1,5 +1,5 @@
 from flask import Flask, request, Response
-import main  # Importiere dein Skript
+import cal_parser  # Importiere dein Skript
 import logging
 import sys
 
@@ -28,7 +28,7 @@ def get_ical():
         return "No url provided", 400
 
     try:
-        ics_content, cal_name = main.generate_ics(url)
+        ics_content, cal_name = cal_parser.generate_ics(url)
         logging.info(f"Response for ICAL calendar {cal_name} is sent")
         return Response(
             ics_content,
