@@ -1,6 +1,7 @@
 import logging
+from datetime import timedelta
 from typing import Tuple
-from icalendar import Calendar
+from icalendar import Calendar, vDuration
 import requests
 
 def remove_duplicate_uids(cal):
@@ -91,7 +92,7 @@ def generate_ics(url : str) -> Tuple[str, str]:
     if 'X-WR-CALNAME' in cal:
         cal_name = cal['X-WR-CALNAME']
 
-    new_interval = 'PT30M'
+    new_interval = vDuration(timedelta(minutes=10))
 
     if cal.get('REFRESH-INTERVAL') != new_interval:
         cal['REFRESH-INTERVAL'] = new_interval

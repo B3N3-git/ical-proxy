@@ -1,10 +1,10 @@
 from flask import Flask, request, Response
-import main  # Importiere dein Skript
+import cal_parser  # Importiere dein Skript
 import logging
 import sys
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt='%H:%M:%S',
     handlers=[logging.StreamHandler(sys.stdout)] # Expliziter StreamHandler
