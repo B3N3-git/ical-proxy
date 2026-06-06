@@ -91,13 +91,15 @@ def generate_ics(url : str) -> Tuple[str, str]:
     if 'X-WR-CALNAME' in cal:
         cal_name = cal['X-WR-CALNAME']
 
-    if 'REFRESH-INTERVAL' in cal:
-        logging.info(f"REFRESH-INTERVAL: {cal['REFRESH-INTERVAL']} entfernt")
-        del cal['REFRESH-INTERVAL']
+    new_interval = 'PT30M'
 
-    if 'X-PUBLISHED-TTL' in cal:
-        logging.info(f"X-PUBLISHED-TTL: {cal['X-PUBLISHED-TTL']} entfernt")
-        del cal['X-PUBLISHED-TTL']
+    if cal.get('REFRESH-INTERVAL') != new_interval:
+        cal['REFRESH-INTERVAL'] = new_interval
+        logging.debug(f"REFRESH-INTERVAL auf {new_interval} gesetzt.")
+
+    if cal.get('X-PUBLISHED-TTL') != new_interval:
+        cal['X-PUBLISHED-TTL'] = new_interval
+        logging.debug(f"X-PUBLISHED-TTL auf {new_interval} gesetzt.")
 
     cal = remove_duplicate_uids(cal)
 
