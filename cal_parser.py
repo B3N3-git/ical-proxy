@@ -16,7 +16,6 @@ def remove_duplicate_uids(cal):
         if component.name == 'VEVENT':
             uid = component.get('UID')
 
-            # Überspringen, wenn wir die UID schon hatten
             if uid in seen_uids:
                 logging.debug(f"Removed duplicate: {uid}")
                 continue
@@ -27,9 +26,6 @@ def remove_duplicate_uids(cal):
     return new_cal
 
 def unfold_ics(ics):
-    """
-    Entfernt das iCalendar-Zeilenumbruch-Folding (CRLFs gefolgt von einem Leerzeichen).
-    """
     unfolded = ics.replace('\n ', '')
     return unfolded
 
@@ -80,7 +76,6 @@ def generate_ics(url : str) -> Tuple[str, str]:
     cal_name = "no_name"
     response = requests.get(url)
 
-    # Statuscode prüfen (200 bedeutet Erfolg)
     if response.status_code != 200:
         logging.error(f"Error fetching {url} \n Status code: {response.status_code}")
         return "", ""

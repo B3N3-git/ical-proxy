@@ -1,5 +1,5 @@
 from flask import Flask, request, Response
-import cal_parser  # Importiere dein Skript
+import cal_parser
 import logging
 import sys
 
@@ -7,7 +7,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt='%H:%M:%S',
-    handlers=[logging.StreamHandler(sys.stdout)] # Expliziter StreamHandler
+    handlers=[logging.StreamHandler(sys.stdout)]
 )
 
 app = Flask(__name__)

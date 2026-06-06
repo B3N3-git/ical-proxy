@@ -11,5 +11,4 @@ COPY . .
 
 ENV PYTHONUNBUFFERED=1
 
-# Gunicorn explizit anweisen, Logs auf stdout (mittels -) auszugeben
 CMD ["gunicorn", "--bind", "0.0.0.0:44444", "--access-logfile", "/dev/null", "app:app"]
