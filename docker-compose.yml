@@ -6,6 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - "44444:44444"
+    environment:
+      - TZ=Europe/Berlin
     #If using in the same network as Nextcloud
     networks:
       - nextcloud-aio
