@@ -92,11 +92,11 @@ def generate_ics(url : str) -> Tuple[str, str]:
     #    cal['REFRESH-INTERVAL'] = new_interval
     #    logging.debug(f"REFRESH-INTERVAL auf {new_interval} gesetzt.")
     if 'REFRESH-INTERVAL' in cal:
-        logging.debug(f"REFRESH-INTERVAL: {cal['REFRESH-INTERVAL']} entfernt")
+        logging.debug(f"REFRESH-INTERVAL: {cal['REFRESH-INTERVAL']} removed")
         del cal['REFRESH-INTERVAL']
 
     if 'X-PUBLISHED-TTL' in cal:
-        logging.debug(f"X-PUBLISHED-TTL: {cal['X-PUBLISHED-TTL']} entfernt")
+        logging.debug(f"X-PUBLISHED-TTL: {cal['X-PUBLISHED-TTL']} removed")
         del cal['X-PUBLISHED-TTL']
 
     cal = remove_duplicate_uids(cal)
